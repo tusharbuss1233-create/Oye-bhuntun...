@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>One Question ❤️</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: "Segoe UI", sans-serif;
+      overflow: hidden;
+    }
+
+    .card {
+      background: white;
+      padding: 35px;
+      border-radius: 20px;
+      text-align: center;
+      max-width: 420px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.25);
+      z-index: 2;
+    }
+
+    h1 {
+      color: #ff4b5c;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 18px;
+      margin-bottom: 25px;
+    }
+
+    button {
+      padding: 12px 28px;
+      font-size: 18px;
+      border-radius: 30px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+
+    #yes {
+      background: #4CAF50;
+      color: white;
+    }
+
+    #no {
+      background: #ff4b5c;
+      color: white;
+      position: absolute;
+    }
+
+    #result {
+      margin-top: 20px;
+      font-size: 22px;
+      color: #ff4b5c;
+      font-weight: bold;
+      animation: pop 0.5s ease;
+    }
+
+    @keyframes pop {
+      from { transform: scale(0.6); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    /* ❤️ Falling hearts */
+    .heart {
+      position: fixed;
+      top: -10px;
+      color: #ff4b5c;
+      font-size: 20px;
+      animation: fall linear forwards;
+      z-index: 1;
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(110vh);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="card">
+    <h1>Hey Bhuntun ❤️</h1>
+
+    <p>
+      Bhuntun, I already know that you’ve accepted me as your hubby, because I know very well that
+      my Bhuntun is only you.  
+      So today, I want to ask you one simple but special thing…
+      <br><br>
+      <b>Will you be my Valentine, honey bunny ladki? 🥺💖</b>
+    </p>
+
+    <button id="yes">I love you 💘🤧</button>
+    <button id="no">Nhi 😤</button>
+
+    <div id="result"></div>
+  </div>
+
+  <script>
+    const noBtn = document.getElementById("no");
+    const yesBtn = document.getElementById("yes");
+    const result = document.getElementById("result");
+
+    const noTexts = [
+      "Nhi 😤😤",
+      "Areee sb dekh rha hu mai 😤",
+      "Choti bachi ho kya 😤😤",
+      "Itna strong pyar hai aise tootega thorina 🤪",
+      "Kya budu what is your deal 😏😏"
+    ];
+
+    let teaseCount = 0;
+
+    function teaseNoButton() {
+      const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
+      const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
+
+      noBtn.style.left = x + "px";
+      noBtn.style.top = y + "px";
+
+      teaseCount++;
+      noBtn.innerText = noTexts[teaseCount % noTexts.length];
+      noBtn.style.transform = scale(${Math.max(0.6, 1 - teaseCount * 0.05)});
+    }
+
+    noBtn.addEventListener("mouseover", teaseNoButton);
+    noBtn.addEventListener("click", teaseNoButton);
+
+    yesBtn.addEventListener("click", () => {
+      result.innerHTML =
+        "ummmmmmmmmmm I love you too budu rani 😁🩷💗<br>bht saare hugs....";
+      noBtn.style.display = "none";
+      yesBtn.style.display = "none";
+      startHearts();
+    });
+
+    function startHearts() {
+      setInterval(() => {
+        const heart = document.createElement("div");
+        heart.className = "heart";
+        heart.innerHTML = "❤️";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.fontSize = (15 + Math.random() * 25) + "px";
+        heart.style.animationDuration = (2 + Math.random() * 3) + "s";
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+          heart.remove();
+        }, 5000);
+      }, 150);
+    }
+  </script>
+
+</body>
+</html>
