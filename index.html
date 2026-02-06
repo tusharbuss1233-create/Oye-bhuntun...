@@ -29,12 +29,16 @@
 
     h1 {
       color: #ff4b5c;
-      margin-bottom: 10px;
     }
 
     p {
       font-size: 18px;
       margin-bottom: 25px;
+    }
+
+    .buttons {
+      position: relative;
+      height: 80px;
     }
 
     button {
@@ -44,17 +48,21 @@
       border: none;
       cursor: pointer;
       transition: all 0.25s ease;
+      position: absolute;
     }
 
     #yes {
       background: #4CAF50;
       color: white;
+      left: 50%;
+      transform: translateX(-120%);
     }
 
     #no {
       background: #ff4b5c;
       color: white;
-      position: absolute;
+      left: 50%;
+      transform: translateX(20%);
     }
 
     #result {
@@ -74,7 +82,6 @@
     .heart {
       position: fixed;
       top: -10px;
-      color: #ff4b5c;
       font-size: 20px;
       animation: fall linear forwards;
       z-index: 1;
@@ -102,8 +109,10 @@
       <b>Will you be my Valentine, honey bunny ladki? 🥺💖</b>
     </p>
 
-    <button id="yes">I love you 💘🤧</button>
-    <button id="no">Nhi 😤</button>
+    <div class="buttons">
+      <button id="yes">I love you 💘🤧</button>
+      <button id="no">Nhi 😤</button>
+    </div>
 
     <div id="result"></div>
   </div>
@@ -124,18 +133,17 @@
     let teaseCount = 0;
 
     function teaseNoButton() {
-      const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
-      const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
+      const x = Math.random() * (window.innerWidth - 100);
+      const y = Math.random() * (window.innerHeight - 100);
 
       noBtn.style.left = x + "px";
       noBtn.style.top = y + "px";
 
       teaseCount++;
       noBtn.innerText = noTexts[teaseCount % noTexts.length];
-      noBtn.style.transform = scale(${Math.max(0.6, 1 - teaseCount * 0.05)});
     }
 
-    noBtn.addEventListener("mouseover", teaseNoButton);
+    noBtn.addEventListener("mouseenter", teaseNoButton);
     noBtn.addEventListener("click", teaseNoButton);
 
     yesBtn.addEventListener("click", () => {
@@ -156,9 +164,7 @@
         heart.style.animationDuration = (2 + Math.random() * 3) + "s";
         document.body.appendChild(heart);
 
-        setTimeout(() => {
-          heart.remove();
-        }, 5000);
+        setTimeout(() => heart.remove(), 5000);
       }, 150);
     }
   </script>
