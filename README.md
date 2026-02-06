@@ -5,7 +5,7 @@ My life was running perfectly fine…
 but one very important feature was missing.
 
 ## Proposed Feature
-You, Bhuntun 🥺❤️
+You, Bhuntun❤️
 
 ## Description
 This repository contains a special pull request from my heart.  
