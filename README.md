@@ -1,20 +1,14 @@
-# 💖 Will You Be Mine?
+# For You ❤️
 
-## Problem
-My life was running perfectly fine…  
-but one very important feature was missing.
+This little page is just for you.
 
-## Proposed Feature
-You, Bhuntun❤️
+I know I joke a lot, tease you a lot, and act silly…  
+but behind all of that, my feelings for you are very real.
 
-## Description
-This repository contains a special pull request from my heart.  
-Please review it carefully — clicking *NO* may cause unexpected behavior 😌
+If you’re reading this, it means I tried to do something different —  
+something fun, something cute, something us.
 
-## Acceptance Criteria
-- You click *YES*
-- Happiness increases exponentially
-- Hearts fall from the sky 💕
+No pressure. No rules.  
+Just one honest feeling from my heart to yours 💗
 
-## Status
-Awaiting approval from the most beautiful reviewer 💗
+— Your TITU
